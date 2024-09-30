@@ -128,3 +128,23 @@ test.describe('TheTester Hotel API Tests', () => {
         const client = await response.json();
         expect(client.id).toBe(clientId);
       });
+
+   // 8. Uppdatera kund
+   test('TC 08 - Uppdatera kund', async () => {
+    const clientId = 1;
+    const payload = {
+      id: '2',
+      name: 'Mikael Eriksson',
+      email: 'mikael.eriksson@example.com',
+    };
+    const response = await request.put(`/api/client/${clientId}`, {
+      data: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-user-auth': JSON.stringify({ username: 'tester01', token }),
+      },
+    });
+    expect(response.ok()).toBeTruthy();
+    const updatedClient = await response.json();
+    expect(updatedClient.name).toBe(payload.name);
+  });
