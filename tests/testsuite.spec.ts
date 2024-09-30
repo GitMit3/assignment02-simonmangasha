@@ -59,3 +59,14 @@ test.describe('TheTester Hotel API Tests', () => {
     });
     expect(getResponse.status()).toBe(404);
   });
+
+  // 4. Hitta alla kunder
+  test('TC 04 - Hitta alla kunder', async () => {
+    const response = await request.get('/api/clients', {
+      headers: { 'X-user-auth': JSON.stringify({ username: 'tester01', token }) },
+    });
+    expect(response.ok()).toBeTruthy();
+    expect(response.status()).toBe(200);
+    const clients = await response.json();
+    expect(clients.length).toBeGreaterThan(0);
+  });

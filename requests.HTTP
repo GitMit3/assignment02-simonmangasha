@@ -27,3 +27,10 @@ X-user-auth: {"username":"tester01","token":"c8906b535286c2c76264e26b9b559442"}
 DELETE http://localhost:3000/api/bill/1
 Content-Type: application/json
 X-user-auth: {"username":"tester01","token":"ee399bb21589894c2dad35f8d113989d"}
+
+###
+
+### 4. Hitta alla kunder
+GET http://localhost:3000/api/clients
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"c959cbec6f69ecfcc23d07c1f9c898e7"}
