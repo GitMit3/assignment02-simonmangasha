@@ -20,3 +20,10 @@ X-user-auth: {"username":"tester01","token":"c8906b535286c2c76264e26b9b559442"}
 GET http://localhost:3000/api/bill/1
 Content-Type: application/json
 X-user-auth: {"username":"tester01","token":"c8906b535286c2c76264e26b9b559442"}
+
+###
+
+### 3. Radera faktura med ID
+DELETE http://localhost:3000/api/bill/1
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"ee399bb21589894c2dad35f8d113989d"}

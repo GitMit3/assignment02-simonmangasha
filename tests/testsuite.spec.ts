@@ -45,3 +45,17 @@ test.describe('TheTester Hotel API Tests', () => {
     const bill = await response.json();
     expect(bill.id).toBe(billId);
   });
+
+  // 3. Radera faktura med ID
+  test('TC 03 - Radera faktura med ID', async () => {
+    const billId = 1;
+    const deleteResponse = await request.delete(`/api/bill/${billId}`, {
+      headers: { 'X-user-auth': JSON.stringify({ username: 'tester01', token }) },
+    });
+    expect(deleteResponse.ok()).toBeTruthy();
+
+    const getResponse = await request.get(`/api/bill/${billId}`, {
+      headers: { 'X-user-auth': JSON.stringify({ username: 'tester01', token }) },
+    });
+    expect(getResponse.status()).toBe(404);
+  });
