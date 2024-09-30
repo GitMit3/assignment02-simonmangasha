@@ -50,3 +50,15 @@ X-user-auth: {"username":"tester01","token":"3eeab084399d7daafd179f22211c326b"}
   "bill": "ID: 1"
 }
 
+###
+
+### 6. Skapa ny kund
+POST http://localhost:3000/api/client/new
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"c959cbec6f69ecfcc23d07c1f9c898e7"}
+
+{
+  "name": "Jonas Jonasson",
+  "email": "Jonas.Jonasson@example.com",
+  "telephone": "0701234567"
+}
