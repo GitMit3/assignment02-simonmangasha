@@ -83,3 +83,10 @@ X-user-auth: {"username":"tester01","token":"c959cbec6f69ecfcc23d07c1f9c898e7"}
 GET http://localhost:3000/api/room/1
 Content-Type: application/json
 X-user-auth: {"username":"tester01","token":"bd3b1672ac712656e8409b2318d937d3"}
+
+###
+
+### 10. Hitta alla rum
+GET http://localhost:3000/api/rooms
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"bd3b1672ac712656e8409b2318d937d3"}
