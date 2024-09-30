@@ -34,3 +34,19 @@ X-user-auth: {"username":"tester01","token":"ee399bb21589894c2dad35f8d113989d"}
 GET http://localhost:3000/api/clients
 Content-Type: application/json
 X-user-auth: {"username":"tester01","token":"c959cbec6f69ecfcc23d07c1f9c898e7"}
+
+###
+
+### 5. Uppdatera bokning
+PUT http://localhost:3000/api/reservation/1
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"3eeab084399d7daafd179f22211c326b"}
+
+{
+  "start": "2024-12-26",
+  "end": "2025-01-02",
+  "client": "Alexandra Andersson",
+  "room": "Floor 3, Room 302",
+  "bill": "ID: 1"
+}
+

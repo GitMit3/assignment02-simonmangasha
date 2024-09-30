@@ -70,3 +70,31 @@ test.describe('TheTester Hotel API Tests', () => {
     const clients = await response.json();
     expect(clients.length).toBeGreaterThan(0);
   });
+
+  // 5. Uppdatera bokning
+  test('TC 05 - Uppdatera bokning', async () => {
+    const reservationId = 1;
+    const payload = {
+      start: '2024-12-26',
+      end: '2025-01-02',
+      client: 'Alexandra Andersson',
+      room: 'Floor 3, Room 302',
+      bill: 'ID: 1',
+    };
+
+    const response = await request.put(`/api/reservation/${reservationId}`, {
+      data: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-user-auth': JSON.stringify({ username: 'tester01', token }),
+      },
+    });
+    expect(response.ok()).toBeTruthy();
+
+    const updatedReservation = await response.json();
+    expect(updatedReservation.start).toBe(payload.start);
+    expect(updatedReservation.end).toBe(payload.end);
+    expect(updatedReservation.client).toBe(payload.client);
+    expect(updatedReservation.room).toBe(payload.room);
+    expect(updatedReservation.bill).toBe(payload.bill);
+  });
