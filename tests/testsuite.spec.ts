@@ -34,3 +34,14 @@ test.describe('TheTester Hotel API Tests', () => {
     const bills = await response.json();
     expect(bills.length).toBeGreaterThan(0);
   });
+
+  // 2. Hämta faktura med ID
+  test('TC 02 - Hämta faktura med ID', async () => {
+    const billId = 1;
+    const response = await request.get(`/api/bill/${billId}`, {
+      headers: { 'X-user-auth': JSON.stringify({ username: 'tester01', token }) },
+    });
+    expect(response.ok()).toBeTruthy();
+    const bill = await response.json();
+    expect(bill.id).toBe(billId);
+  });

@@ -6,3 +6,17 @@ Content-Type: application/json
   "username": "tester01",
   "password": "GteteqbQQgSr88SwNExUQv2ydb7xuf8c"
 }
+
+###
+
+### 1. Hämta alla fakturor
+GET http://localhost:3000/api/bills
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"c8906b535286c2c76264e26b9b559442"}
+
+###
+
+### 2. Hämta faktura med ID
+GET http://localhost:3000/api/bill/1
+Content-Type: application/json
+X-user-auth: {"username":"tester01","token":"c8906b535286c2c76264e26b9b559442"}
